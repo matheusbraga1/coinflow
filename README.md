@@ -8,7 +8,7 @@ Personal finance tracker built with .NET 10, Clean Architecture and Domain-Drive
 
 ## Tech stack
 
-- .NET 8
+- .NET 10
 - ASP.NET Core
 - Entity Framework Core
 - PostgreSQL
