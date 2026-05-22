@@ -1,6 +1,6 @@
 # CoinFlow
 
-Personal finance tracker built with .NET 8, Clean Architecture and Domain-Driven Design.
+Personal finance tracker built with .NET 10, Clean Architecture and Domain-Driven Design.
 
 ## Status
 
