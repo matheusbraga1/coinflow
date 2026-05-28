@@ -20,7 +20,7 @@ public sealed class ValidationBehavior<TRequest, TResponse>
 
         var context = new ValidationContext<TRequest>(request);
         var failures = (await Task.WhenAll(
-            _validators.Select(x => x.ValidateAsync(context, ct))))
+                _validators.Select(x => x.ValidateAsync(context, ct))))
             .SelectMany(x => x.Errors)
             .Where(x => x is not null)
             .ToList();
