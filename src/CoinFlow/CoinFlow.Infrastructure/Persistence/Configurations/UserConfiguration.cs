@@ -13,7 +13,8 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<User>
         builder.HasKey(x => x.Id);
 
         builder.Property(x => x.Id)
-            .HasColumnName("id");
+            .HasColumnName("id")
+            .ValueGeneratedNever();
 
         // Mapeia o value object Email para uma coluna string no banco de dados
         builder.Property(x => x.Email)
