@@ -34,7 +34,7 @@ internal sealed class UserRepository : IUserRepository
 
         return await _dbContext.Users
             .Include(x => x.RefreshTokens)
-            .FirstOrDefaultAsync(x => x.Id == refreshToken.Id, ct);
+            .FirstOrDefaultAsync(x => x.Id == refreshToken.UserId, ct);
     }
 
     public void Update(User user) => _dbContext.Users.Update(user);
