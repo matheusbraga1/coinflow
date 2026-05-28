@@ -28,7 +28,7 @@ public sealed class LoginHandler : IRequestHandler<LoginCommand, LoginResponse>
     public async Task<LoginResponse> Handle(LoginCommand request, CancellationToken ct)
     {
         var email = Email.Create(request.Email);
-        var user = await _userRepository.GetByEmailAsync(email);
+        var user = await _userRepository.GetByEmailAsync(email, ct);
 
         if (user is null || !_passwordHasher.Verify(request.Password, user.PasswordHash))
             throw new InvalidCredentialsException();
@@ -36,7 +36,6 @@ public sealed class LoginHandler : IRequestHandler<LoginCommand, LoginResponse>
         var tokens = _tokenGenerator.Generate(user);
         user.IssueRefreshToken(tokens.RefreshToken, tokens.RefreshTokenExpiresAt);
 
-        _userRepository.Update(user);
         await _unitOfWork.CommitAsync(ct);
 
         return new LoginResponse(

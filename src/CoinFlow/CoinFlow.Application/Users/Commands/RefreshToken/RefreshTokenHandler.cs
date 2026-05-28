@@ -40,7 +40,6 @@ public sealed class RefreshTokenHandler : IRequestHandler<RefreshTokenCommand, L
         var newTokens = _tokenGenerator.Generate(user);
         user.IssueRefreshToken(newTokens.RefreshToken, newTokens.RefreshTokenExpiresAt);
 
-        _userRepository.Update(user);
         await _unitOfWork.CommitAsync(ct);
 
         return new LoginResponse
