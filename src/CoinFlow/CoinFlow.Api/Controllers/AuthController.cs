@@ -9,11 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CoinFlow.Api.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
-[Produces("application/json")]
 [AllowAnonymous]
-public class AuthController : ControllerBase
+public class AuthController : CoinFlowControllerBase
 {
     private readonly IMediator _mediator;
 
