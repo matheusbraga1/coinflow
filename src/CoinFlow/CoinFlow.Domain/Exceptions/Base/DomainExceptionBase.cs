@@ -1,4 +1,4 @@
-﻿namespace CoinFlow.Domain.Exceptions;
+﻿namespace CoinFlow.Domain.Exceptions.Base;
 
 public abstract class DomainExceptionBase : Exception
 {

@@ -1,6 +1,8 @@
-﻿namespace CoinFlow.Domain.Exceptions.Users;
+﻿using CoinFlow.Domain.Exceptions.Base;
 
-public sealed class InvalidRefreshTokenException : DomainExceptionBase
+namespace CoinFlow.Domain.Exceptions.Users;
+
+public sealed class InvalidRefreshTokenException : UnauthorizedException
 {
     public InvalidRefreshTokenException() 
         : base("Token de atualização inválido ou expirado.") { }

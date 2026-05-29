@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using FluentValidation;
 using CoinFlow.Domain.Exceptions.Users;
 using CoinFlow.Application.Users.Exceptions;
-using CoinFlow.Domain.Exceptions;
+using CoinFlow.Domain.Exceptions.Base;
 
 namespace CoinFlow.Api.ExceptionHandlers;
 
@@ -45,36 +45,36 @@ internal sealed class GlobalExceptionHandler : IExceptionHandler
             Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
         },
 
-        InvalidEmailException => new ProblemDetails
+        BadRequestException => new ProblemDetails
         {
             Status = StatusCodes.Status400BadRequest,
-            Title = "Formato de email inválido.",
+            Title = "Requisição inválida.",
             Detail = exception.Message,
             Type = "https://tools.ietf.org/html/rfc7231#section-6.5.1"
         },
 
-        EmailAlreadyExistsException => new ProblemDetails
+        ConflictException => new ProblemDetails
         {
             Status = StatusCodes.Status409Conflict,
-            Title = "Email já existe.",
+            Title = "Conflito de estado.",
             Detail = exception.Message,
             Type = "https://tools.ietf.org/html/rfc7231#section-6.5.8"
         },
 
-        InvalidCredentialsException => new ProblemDetails
+        UnauthorizedException => new ProblemDetails
         {
             Status = StatusCodes.Status401Unauthorized,
-            Title = "Credenciais inválidas.",
+            Title = "Não autorizado.",
             Detail = exception.Message,
             Type = "https://tools.ietf.org/html/rfc7235#section-3.1"
         },
 
-        InvalidRefreshTokenException => new ProblemDetails
+        NotFoundException => new ProblemDetails
         {
-            Status = StatusCodes.Status401Unauthorized,
-            Title = "Token de atualização inválido.",
+            Status = StatusCodes.Status404NotFound,
+            Title = "Recurso não encontrado.",
             Detail = exception.Message,
-            Type = "https://tools.ietf.org/html/rfc7235#section-3.1"
+            Type = "https://tools.ietf.org/html/rfc7231#section-6.5.4"
         },
 
         DomainExceptionBase domain => new ProblemDetails

@@ -1,6 +1,8 @@
-﻿namespace CoinFlow.Domain.Exceptions.Users;
+﻿using CoinFlow.Domain.Exceptions.Base;
 
-public sealed class RefreshTokenNotFoundException : DomainExceptionBase
+namespace CoinFlow.Domain.Exceptions.Users;
+
+public sealed class RefreshTokenNotFoundException : NotFoundException
 {
-    public RefreshTokenNotFoundException() : base("Refresh token não encontrado") { }
+    public RefreshTokenNotFoundException() : base("Token de atualização não encontrado") { }
 }

@@ -1,6 +1,8 @@
-﻿namespace CoinFlow.Domain.Exceptions.Users;
+﻿using CoinFlow.Domain.Exceptions.Base;
 
-public sealed class InvalidEmailException : DomainExceptionBase
+namespace CoinFlow.Domain.Exceptions.Users;
+
+public sealed class InvalidEmailException : BadRequestException
 {
     public InvalidEmailException(string attemptedValue)
         : base($"Email inválido: '{attemptedValue}'") { }
