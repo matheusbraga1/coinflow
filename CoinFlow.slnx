@@ -1,0 +1,13 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CoinFlow.Api/CoinFlow.Api.csproj" />
+    <Project Path="src/CoinFlow.Application/CoinFlow.Application.csproj" />
+    <Project Path="src/CoinFlow.Domain/CoinFlow.Domain.csproj" />
+    <Project Path="src/CoinFlow.Infrastructure/CoinFlow.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CoinFlow.Application.UnitTests/CoinFlow.Application.UnitTests.csproj" />
+    <Project Path="tests/CoinFlow.Domain.UnitTests/CoinFlow.Domain.UnitTests.csproj" />
+    <Project Path="tests/CoinFlow.Integration.Tests/CoinFlow.Integration.Tests.csproj" />
+  </Folder>
+</Solution>

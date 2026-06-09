@@ -54,7 +54,7 @@ public sealed class User : AggregateRoot
         var refreshToken = _refreshTokens.FirstOrDefault(rt => rt.Token == token);
         
         if (refreshToken is null)
-            throw new InvalidOperationException("Refresh token not found.");
+            throw new RefreshTokenNotFoundException();
 
         refreshToken.Revoke();
     }
