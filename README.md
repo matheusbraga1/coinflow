@@ -17,7 +17,7 @@ Personal finance tracker built with .NET 10, Clean Architecture and Domain-Drive
 
 ## Architecture
 
-Clean Architecture with two bounded contexts:
+Clean Architecture with one bounded contexts:
 - **Lançamentos** (core monolith): users, accounts, categories, transactions, budgets
 
 ## Getting started
