@@ -28,7 +28,7 @@ public sealed class UserController : CoinFlowControllerBase
         var query = new GetCurrentUserQuery(_currentUserService.UserId);
         var result = await _mediator.Send(query, ct);
 
-        var response = new CoinFlow.Api.Models.Responses.CurrentUserResponse(
+        var response = new Models.Responses.CurrentUserResponse(
             result.UserId,
             result.Email,
             result.Name,
